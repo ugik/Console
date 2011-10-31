@@ -1,0 +1,8 @@
+<tr>	
+  <td><%= team.name %></td>
+  <td><%= team.created_at.strftime("%m/%d/%Y")%> </td>
+  <td><%= team.updated_at.strftime("%m/%d/%Y")%> </td>
+  <td><%= (team.full ? "Full Team" : "Vancancy") %> </td>
+  <td><%= number_with_delimiter(@team_scores[team.id].to_i, :delimiter => ',')%> </td>
+</tr>
+

@@ -1,0 +1,23 @@
+<% cache('teams_cache') do %>
+
+<% # here we build 2 hashes: one '@team_scores' containing the sum of points from a join with scores table_alias_for
+   # the other '@teams' containing team info, the 2 hashes will be cross-referenced in the _team partial
+%>
+<% @team_scores = current_admin.challenges.first.teams.sum(:points, :group => 'teams.id', :joins => {:users, :scores}  ) %>
+<% @teams = current_admin.challenges.first.teams %>
+<table>
+<tr>
+	<td>Name</td>
+	<td>Created</td>
+	<td>Updated</td>
+	<td>Full</td>
+	<td>Score</td>
+</tr>
+  <% 
+  @teams.each do |team| %>
+    
+    <%= render team %>
+  <% end %>
+<% end %>
+</table>
+

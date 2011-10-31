@@ -6,11 +6,11 @@ gem 'mysql2'
 gem 'gravatar_image_tag', '1.0.0.pre2'
 gem 'will_paginate', '3.0.pre2'
 gem "google_visualr", "~> 2.1.0"
-
 gem 'jquery-rails'
 
 group :development do
   gem 'faker', '0.3.1'
+  gem 'ruby-debug'
 end
 
 # Gems used only for assets and not required

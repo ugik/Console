@@ -4,13 +4,19 @@ class AdminsController < ApplicationController
   before_filter :administrator_admin,   :only => [:index, :new, :destroy]
 
   def show
-    @admin = Admin.find(params[:id])
     @title = @admin.name
+    @admin = Admin.find(params[:id])
 
   end
 
   def graphs
     redirect_to :action => 'view_graphs'
+  end
+
+  def teams
+    @title = current_admin.name
+    redirect_to :action => 'view_teams'
+
   end
 
   def edit
@@ -53,8 +59,8 @@ class AdminsController < ApplicationController
   end
   
   def edit
-    @admin = Admin.find(params[:id])
     @title = "Edit admin"
+    @admin = Admin.find(params[:id])
   end
 
   def index
@@ -63,8 +69,8 @@ class AdminsController < ApplicationController
   end
 
   def show
-    @admin = Admin.find(params[:id])
     @title = @admin.name
+    @admin = Admin.find(params[:id])
 
     if session[:cache] == nil     # setup cache in session
       cache = Hash.new

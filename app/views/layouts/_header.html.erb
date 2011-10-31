@@ -7,6 +7,8 @@
   	    <% if current_admin.administrator? %>
 	      	<li><%= link_to "Admins", admins_path %></li>
       	<% end %>
+		  <li><%= link_to "Graphs", :controller => 'admins', :method => :get, :action => 'graphs' %>
+		  <li><%= link_to "Teams", :controller => 'admins', :method => :get, :action => 'teams' %>
 	      <li><%= link_to "Profile", current_admin %></li>
     	  <li><%= link_to "Settings", edit_admin_path(current_admin) %></li>
       <% end %>

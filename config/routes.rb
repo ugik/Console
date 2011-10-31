@@ -3,7 +3,9 @@ Console::Application.routes.draw do
   resources :admins do
      collection do
         get 'graphs'
+        get 'teams'
         get 'view_graphs'
+        get 'view_teams'
      end
   end
   resources :sessions, :only => [:new, :create, :destroy]
