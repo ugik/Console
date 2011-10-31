@@ -13,7 +13,7 @@
    elsif params[:sort]=='score'  # handle scores with possible nil case (sort_by is not nil safe)
    			@teams = @teams.sort_by{|t| t.score || 0 }
    else
-   		@teams = @teams.sort_by{|t| t[params[:sort].to_sym]} 
+   		@teams = @teams.sort_by{|t| t[params[:sort].to_sym] || ''}
   end %>
 
 <table>
