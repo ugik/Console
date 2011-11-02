@@ -7,7 +7,8 @@
    # the other '@teams' containing team info, the 2 hashes will be cross-referenced in the _team partial
 %>
 
-<% @team_scores = current_admin.challenges.first.teams.sum(:points, :group => 'teams.id', :joins => {:users, :scores}  ) %>
+<% @team_scores = current_admin.challenges.first.teams.sum(:points, :group => 'teams.id', :joins => {:users => :scores}  ) %>
+
 <% @teams = current_admin.challenges.first.teams %>
 <% @teams.each { |t| t.score = @team_scores[t.id]} %>
 <%  %>
