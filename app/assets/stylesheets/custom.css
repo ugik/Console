@@ -194,3 +194,22 @@ ul.admins {
 .admins li {
   list-style: none;
 }
+
+/* Sorted teams view */
+
+.SortedTeams {
+  font-size: 95%;
+}
+
+.SortedTeams th .current {
+  padding-right: 15px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.SortedTeams th .asc { 
+  background-image: url(/images/arrow_up.gif); 
+}
+
+.SortedTeams th .desc { 
+  background-image: url(/images/arrow_down.gif); 
+}

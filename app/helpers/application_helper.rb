@@ -18,4 +18,11 @@ module ApplicationHelper
     image_tag("PowerOfPlay.jpg", :alt => "Console", :class => "round", :width => "250")
   end  
 
+  def sortable(column, title = nil)
+    title ||= column.titleize
+    direction = (column == params[:sort] && params[:direction] == "asc") ? "desc" : "asc"
+    css_class = (column == params[:sort]) ? "current #{params[:direction]}" : nil
+    link_to title, {:sort => column, :direction => direction}, {:class => css_class}
+  end
+
 end

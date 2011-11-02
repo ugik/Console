@@ -1,5 +1,8 @@
 <% cache('teams_cache') do %>
 
+<% params[:sort] ||= "name"             # default sort
+   params[:direction] ||= "asc"         # default direction
+%>
 <% # here we build 2 hashes: one '@team_scores' containing the sum of points from a join with scores table_alias_for
    # the other '@teams' containing team info, the 2 hashes will be cross-referenced in the _team partial
 %>
@@ -14,15 +17,20 @@
    			@teams = @teams.sort_by{|t| t.score || 0 }
    else
    		@teams = @teams.sort_by{|t| t[params[:sort].to_sym] || ''}
-  end %>
+  end 
+  if params[:direction]=='desc'
+	@teams.reverse!
+  end
+  
+  %>
 
-<table>
+<table class="SortedTeams">
 <tr>
-	<th><%= link_to "Name", :sort => "name" %></th>
-	<th><%= link_to "Created", :sort => "created_at" %></th>
-	<th><%= link_to "Updated", :sort => "updated_at" %></th>
-	<th><%= link_to "Vacancy", :sort => "full" %></th>
-	<th><%= link_to "Score", :sort => "score" %></th>
+	<th><%= sortable "name" %></th>
+	<th><%= sortable "created_at", "Created" %></th>
+	<th><%= sortable "updated_at", "Updated" %></th>
+	<th><%= sortable "full", "Vacancy" %></th>
+	<th><%= sortable "score" %></th>
 </tr>
   <% @teams.each do |team| %>    
     <%= render team %>
