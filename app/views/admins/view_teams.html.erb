@@ -1,4 +1,3 @@
-<% cache('teams_cache') do %>
 
 <% params[:sort] ||= "name"             # default sort
    params[:direction] ||= "asc"         # default direction
@@ -36,6 +35,4 @@
   <% @teams.each do |team| %>    
     <%= render team %>
   <% end %>
-<% end %>
 </table>
-
