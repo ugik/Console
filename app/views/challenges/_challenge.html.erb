@@ -66,9 +66,9 @@
 <tr>
 	<td></td><td>
 	<%  @data_table = GoogleVisualr::DataTable.new
-    challenge.load_bmi_bellcurve_table(challenge.id, @data_table) %>
-
-	<% option = { :width => 550, :height => 240, :title => 'BMI Distribution'}
+    @bmi_mean = challenge.load_bmi_bellcurve_table(challenge.id, @data_table) %>
+	<% x_axis_title = "Average:"+ number_with_precision(@bmi_mean, :precision => 2) %>
+	<% option = { :width => 550, :height => 240, :title => 'BMI Distribution', :hAxis => { :title => x_axis_title, :titleTextStyle => {:color => 'blue'}}}
 	@chart = GoogleVisualr::Interactive::ColumnChart.new(@data_table, option) %>
 	<div id='bellcurve-chart'></div>
 	<%= render_chart(@chart, 'bellcurve-chart') %> 

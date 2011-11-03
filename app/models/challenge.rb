@@ -135,7 +135,19 @@ class Challenge < ActiveRecord::Base
 
   def load_bmi_bellcurve_table(challenge_id, table)   # load pie chart table
     @challenge = Challenge.find(challenge_id)
-    bmi = @challenge.users.count(:order => 'value', :group => 'value', :joins => :health_statistics, :conditions => "type = 'CalculatedBMI'").to_a
+    bmi = @challenge.users.count(:order => 'value', 
+                                 :group => 'value', 
+                                 :joins => :health_statistics, 
+                                 :conditions => "type = 'CalculatedBMI'").to_a
+
+    bmi.reject!{|item| item[0]<10 or item[0]>50}                    # clean up data
+
+    bmi_items = bmi.inject(0) {|t,e| t+e[1]}
+    bmi_mean = bmi.inject(0) {|t,e| t+e[0]*e[1]}/bmi_items          # calculate mean
+
+    logger.debug("\n>>> BMI size: "+bmi.size.to_s)      # debug log
+    logger.debug(">>> BMI items: "+bmi_items.to_s)
+    logger.debug(">>> BMI mean: "+bmi_mean.to_s)
 
     table.new_column('string', 'BMI')
     table.new_column('number', '#')
@@ -148,6 +160,7 @@ class Challenge < ActiveRecord::Base
       cell_num += 1
     }
     logger.debug(">>> BMI bell curve")
+    return bmi_mean
   end
 
 end
