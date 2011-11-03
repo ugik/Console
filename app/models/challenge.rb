@@ -117,8 +117,8 @@ class Challenge < ActiveRecord::Base
     @challenge = Challenge.find(challenge_id)
     users = @challenge.users.count
     users_on_teams = @challenge.teams.count(:joins => :team_user_associations)
-    users_on_full_teams = @challenge.teams.count(:conditions => 'full')
-    
+    users_on_full_teams = 6 * @challenge.teams.count(:conditions => 'full')
+
     table.new_column('string', 'Users Breakdown')
     table.new_column('number', 'Users')
 
