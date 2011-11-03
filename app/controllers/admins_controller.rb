@@ -10,13 +10,32 @@ class AdminsController < ApplicationController
   end
 
   def graphs
-    redirect_to :action => 'view_graphs'
+     render :action => "view_graphs"
   end
 
   def teams
-    @title = current_admin.name
-    redirect_to :action => 'view_teams'
+    # here we build 2 hashes: one '@team_scores' containing the sum of points from a join with scores table_alias_for
+    # the other '@teams' containing team info, the 2 hashes will be cross-referenced in the _team partial
 
+    @team_scores = current_admin.challenges.first.teams.sum(:points, :group => 'teams.id', :joins => {:users => :scores})
+    @teams = current_admin.challenges.first.teams
+    @teams.each { |t| t.score = @team_scores[t.id]}
+
+    params[:sort] ||= "name"             # default sort
+    params[:direction] ||= "asc"         # default direction
+
+    if params[:sort]=='full'   # handle boolean case
+      @teams = @teams.sort_by{|t| t.full ? "Team Full" : "Vacancy"}
+    elsif params[:sort]=='score'  # handle scores with possible nil case (sort_by is not nil safe)
+      @teams = @teams.sort_by{|t| t.score || 0 }
+    else
+      @teams = @teams.sort_by{|t| t[params[:sort].to_sym] || ''}
+    end 
+    if params[:direction]=='desc'
+      @teams.reverse!
+    end
+
+     render :action => "view_teams"
   end
 
   def edit

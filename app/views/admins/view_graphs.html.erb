@@ -22,7 +22,7 @@
 <tr>
 	<td></td><td>
 	<%  @data_table = GoogleVisualr::DataTable.new
-    challenge.load_challenge_users_table(challenge.id, @data_table) %>
+    load_challenge_users_table(challenge.id, @data_table) %>
 	<%  opts   = { :displayAnnotations => false }
     @chart = GoogleVisualr::Interactive::AnnotatedTimeLine.new(@data_table, opts)  %>
 	<div id='annotated-chart' style='width: 700px; height: 300px;'></div>
@@ -33,7 +33,7 @@
 <tr>
 	<td></td><td>
 	<%  @data_table = GoogleVisualr::DataTable.new
-    challenge.load_challenge_points_annotated_table(challenge.id, @data_table) %>
+    load_challenge_points_annotated_table(challenge.id, @data_table) %>
 	<%  opts   = { :displayAnnotations => false }
     @chart = GoogleVisualr::Interactive::AnnotatedTimeLine.new(@data_table, opts)  %>
 	<div id='annotated-points-chart' style='width: 700px; height: 300px;'></div>
