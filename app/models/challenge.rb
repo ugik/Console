@@ -131,7 +131,23 @@ class Challenge < ActiveRecord::Base
     table.set_cell(2, 1, (users_on_full_teams) )
 
     logger.debug(">>> ")
+  end
 
+  def load_bmi_bellcurve_table(challenge_id, table)   # load pie chart table
+    @challenge = Challenge.find(challenge_id)
+    bmi = @challenge.users.count(:order => 'value', :group => 'value', :joins => :health_statistics, :conditions => "type = 'CalculatedBMI'").to_a
+
+    table.new_column('string', 'BMI')
+    table.new_column('number', '#')
+
+    table.add_rows(bmi.size)
+    cell_num = 0
+    bmi.each {|t| 
+      table.set_cell(cell_num, 0, t[0].to_s)      # set BMI value
+      table.set_cell(cell_num, 1, t[1])           # set BMI count
+      cell_num += 1
+    }
+    logger.debug(">>> BMI bell curve")
   end
 
 end

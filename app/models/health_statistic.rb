@@ -1,4 +1,5 @@
-class User < ActiveRecord::Base
+class HealthStatistic < ActiveRecord::Base
+  set_inheritance_column :ruby_type
   self.abstract_class = true
   establish_connection(
     :adapter => "mysql2",
@@ -11,7 +12,6 @@ class User < ActiveRecord::Base
     :pool => "5"
   )
 
-  has_many :scores
-  has_many :health_statistics
-  
+  belongs_to :user
+
 end
