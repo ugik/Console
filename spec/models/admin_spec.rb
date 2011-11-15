@@ -8,7 +8,7 @@ describe Admin do
 		:email => "admin@example.com",
 		:password => "foobar",
 		:password_confirmation => "foobar" }
-	end
+		end
 
 	it "Should create a new instance given valid attributes" do
 		Admin.create!(@attr)

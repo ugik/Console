@@ -22,32 +22,32 @@ describe "LayoutLinks" do
 		response.should have_selector('title', :content => "Help")
 	end
 
-describe "When not signed in" do
-	it "Should have a signin link" do
-		visit root_path
-		response.should have_selector("a", :href => signin_path, :content => "Sign in")
+	describe "When not signed in" do
+		it "Should have a signin link" do
+			visit root_path
+			response.should have_selector("a", :href => signin_path, :content => "Sign in")
+		end
 	end
-end
 
-describe "When signed in" do
+	describe "When signed in" do
 
-	before(:each) do
-		@admin = Factory(:admin)
-		visit signin_path
-		fill_in :email,    :with => @admin.email
-		fill_in :password, :with => @admin.password
-		click_button
+		before(:each) do
+			@admin = Factory(:admin)
+			visit signin_path
+			fill_in :email,    :with => @admin.email
+			fill_in :password, :with => @admin.password
+			click_button
 		end
 
-	it "Should have a signout link" do
-		visit root_path
-		response.should have_selector("a", :href => signout_path, :content => "Sign out")
-	end
+		it "Should have a signout link" do
+			visit root_path
+			response.should have_selector("a", :href => signout_path, :content => "Sign out")
+		end
 
-	it "Should have a profile link" do
-		visit root_path
-		response.should have_selector("a", :href => admin_path(@admin), :content => "Profile")
+		it "Should have a profile link" do
+			visit root_path
+			response.should have_selector("a", :href => admin_path(@admin), :content => "Profile")
+		end
 	end
-end
 end
 

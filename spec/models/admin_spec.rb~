@@ -72,7 +72,7 @@ end
 		end
 
 		it "Should reject short passwords" do
-			short = "a" * 6
+			short = "a" * 5
 			hash = @attr.merge(:password => short, :password_confirmation => short)
 			Admin.new(hash).should_not be_valid
 		end
