@@ -47,7 +47,7 @@ describe PagesController do
 
 		it "should have the right title" do
 			get 'help'
-			response.should have_selector("title", :content => "Console | Help")
+			response.should have_selector("title", :content => "Console | About")
 		end
 	end
 

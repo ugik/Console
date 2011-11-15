@@ -80,9 +80,8 @@ describe AdminsController do
 
 		describe "For signed-in but accessing different ID" do
 		before(:each) do
-			@admin = Factory(:admin)
-			@wrong_admin = Factory(:admin, :email => "admin@example.net")
-			test_sign_in(@wrong_admin)
+			wrong_admin = Factory(:admin, :email => "admin@example.net")
+			test_sign_in(wrong_admin)
 			end
 
 			it "SHOW should require matching ID" do

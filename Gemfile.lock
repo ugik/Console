@@ -1,6 +1,7 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.6.2)
     actionmailer (3.1.0)
       actionpack (= 3.1.0)
       mail (~> 2.3.0)
@@ -32,6 +33,9 @@ GEM
       multi_json (~> 1.0)
     ansi (1.3.0)
     arel (2.2.1)
+    autotest (4.4.6)
+      ZenTest (>= 4.4.1)
+    autotest-rails-pure (4.1.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
     builder (3.0.0)
@@ -71,6 +75,7 @@ GEM
     mysql2 (0.3.7)
     nokogiri (1.5.0)
     nokogiri (1.5.0-x86-mingw32)
+    notifier (0.1.4)
     polyglot (0.3.2)
     rack (1.3.3)
     rack-cache (1.0.3)
@@ -130,6 +135,8 @@ GEM
       tilt (~> 1.1, != 1.3.0)
     sqlite3 (1.3.4)
     sqlite3 (1.3.4-x86-mingw32)
+    test_notifier (1.0.0)
+      notifier
     therubyracer (0.9.8)
       libv8 (~> 3.3.10)
     therubyracer-heroku (0.8.1.pre3)
@@ -155,6 +162,8 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  autotest
+  autotest-rails-pure
   coffee-rails (~> 3.1.0)
   factory_girl_rails (= 1.0)
   faker (= 0.3.1)
@@ -167,6 +176,7 @@ DEPENDENCIES
   ruby-debug
   sass-rails (~> 3.1.0)
   sqlite3
+  test_notifier
   therubyracer
   therubyracer-heroku
   turn

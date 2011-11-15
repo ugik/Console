@@ -1,0 +1,28 @@
+#!/bin/ruby
+require 'test_notifier/runner/autotest'
+require 'autotest/timestamp'
+## This is to avoid the code below making autotest loop forever without
+## waiting for "real" changes, got from
+## http://stackoverflow.com/questions/31...
+Autotest.add_hook :initialize do |at|
+  # Gemfile.lock is causing cucumber to run infinitely. Don't watch it.
+  at.add_exception(%r{^\./Gemfile.lock})
+  at.add_exception(%r{^\./webrat.log})
+end
+## Note: I added this because autotest doesn't run the controller test
+## if i modify a view, but this tutorial puts the view tests in the
+## controller spec files.
+## got this piece from
+## http://ph7spot.com/musings/getting-st...
+# Override autotest default magic to rerun all tests every time a
+# change is detected on the file system.
+class Autotest
+  def get_to_green
+    begin
+      rerun_all_tests
+      wait_for_changes unless all_good
+    end until all_good
+  end
+end
+
+

@@ -11,6 +11,7 @@ gem 'jquery-rails'
 group :development do
   gem 'faker', '0.3.1'
   gem 'ruby-debug'
+  gem 'therubyracer'
 end
 
 # Gems used only for assets and not required
