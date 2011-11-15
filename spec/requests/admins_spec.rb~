@@ -28,7 +28,7 @@ describe "Admins" do
 	end
 
 	describe "Success" do
-		it "Should allow administrator to create NEW" do
+		it "should allow administrator to create NEW" do
 			admin = Factory(:admin, :email => "administrator@example.com", :administrator => true)
 			visit signin_path
 			fill_in :email,    :with => admin.email
@@ -39,7 +39,7 @@ describe "Admins" do
 			response.should render_template('admins/new')
 		end
       
-		it "Should not make a new admin" do
+		it "should not make a new admin" do
 			admin = Factory(:admin, :email => "administrator@example.com", :administrator => true)
 			visit signin_path
 			fill_in :email,    :with => admin.email
@@ -58,7 +58,7 @@ describe "Admins" do
 			end.should_not change(Admin, :count)
 		end
 
-		it "Should make a new admin" do
+		it "should make a new admin" do
 			admin = Factory(:admin, :email => "administrator@example.com", :administrator => true)
 			visit signin_path
 			fill_in :email,    :with => admin.email
