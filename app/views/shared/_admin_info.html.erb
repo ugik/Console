@@ -1,5 +1,5 @@
 <div class="admin_info">
-    <% if current_admin.league_url.size != 0 %>
+    <% if current_admin.league_url != nil and current_admin.league_url.size != 0 %>
    		<%= link_to league_logo, root_path %>
     <% else %>
     	<small>(set league logo image URL in 'Settings')</small>
