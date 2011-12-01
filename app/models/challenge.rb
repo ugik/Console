@@ -14,6 +14,7 @@ class Challenge < ActiveRecord::Base
   )
 
   belongs_to :admin, :foreign_key => "league_id"
+  belongs_to :league
   has_many :challenge_memberships
   has_many :users, :through => :challenge_memberships
   has_many :teams, :primary_key => "league_id", :foreign_key => "league_id"

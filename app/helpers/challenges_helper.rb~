@@ -1,6 +1,7 @@
 module ChallengesHelper
 
-  def load_registered_users(challenge_id)	# load registered users per day
+  def load_registered_users(challenge_id, array)	# load registered users per day
+
     @challenge = Challenge.find(challenge_id)
     @activationDate = @challenge.activation_date
 

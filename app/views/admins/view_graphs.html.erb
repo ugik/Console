@@ -1,6 +1,6 @@
 <% cache('graphs_cache') do %>
 
-<% challenge = current_admin.challenges.first %>
+<% challenge = current_admin.challenges.last %>
 <tr>
 	<td></td><td>
 	<%  @data_table = GoogleVisualr::DataTable.new

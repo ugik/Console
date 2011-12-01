@@ -12,6 +12,7 @@ class Division < ActiveRecord::Base
   )
   
   belongs_to :admin, :foreign_key => "league_id"
+  belongs_to :league
   has_many :users
   has_many :teams
     

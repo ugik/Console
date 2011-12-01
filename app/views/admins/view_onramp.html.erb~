@@ -1,0 +1,39 @@
+<% cache('onramp_cache') do %>
+
+<% challenge = current_admin.challenges.last
+      @regx = Array.new(load_registered_users(challenge.id))   #array of registered users from league activation date
+      @reg_tot = 0 %>
+
+<% if challenge.eligible_members != nil and challenge.eligible_members != 0 %>
+	Eligible: <%= challenge.eligible_members %>
+
+<% end %>
+
+<table>
+<tr>
+	<th></th>
+	<% @regx.each do |x| %>
+	<th> <%= x[0].strftime("%m/%d") %> </th>
+	<% end %>
+</tr><tr>
+	<td>Registered</td>
+	<% @regx.each do |x| %>
+		<td> <%= @reg_tot += x[1] %> </td>
+	<% end %>
+</tr>
+
+	<% if challenge.eligible_members != nil and challenge.eligible_members != 0 
+	      @reg_tot = 0 %>
+	<tr>
+		<td>% Eligible</td>
+		<% @regx.each do |x|  @reg_tot += x[1] %>
+			<td> <%= @reg_tot.to_f / challenge.eligible_members.to_f * 100 %></td>
+		<% end %>
+	</tr>
+	<% end %>
+
+</table>
+
+<% end %>
+
+

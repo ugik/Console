@@ -36,7 +36,7 @@ class Challenge < ActiveRecord::Base
   memoize :num_users_on_teams
 
   def top_teams
-	@team_scores = self.teams.sum(:points, :group => 'teams.id', :joins => {:users => :scores}, :order => 'score', :limit => '5')
+	@team_scores = self.teams.sum(:points, :group => 'teams.id', :joins => {:users => :scores}, :order => 'score DESC', :limit => '5')
   end
   memoize :top_teams
 

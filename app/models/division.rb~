@@ -1,4 +1,4 @@
-class League < ActiveRecord::Base
+class Division < ActiveRecord::Base
   self.abstract_class = true
   establish_connection(
     :adapter => "mysql2",
@@ -10,12 +10,9 @@ class League < ActiveRecord::Base
     :reconnect => "false",
     :pool => "5"
   )
-
-#  belongs_to :admin, :foreign_key => "league_id"
-  has_one :admin, :foreign_key => "league_id"
-
-  has_many :divisions
+  
+  belongs_to :admin, :foreign_key => "league_id"
+  has_many :users
   has_many :teams
-  has_many :challenges
-
+    
 end

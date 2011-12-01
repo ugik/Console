@@ -1,4 +1,4 @@
-<% cache('graphs_cache') do %>
+<% cache('annotated_charts_cache') do %>
 
 <% challenge = current_admin.challenges.first %>
 <tr>

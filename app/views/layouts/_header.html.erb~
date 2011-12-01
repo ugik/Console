@@ -24,9 +24,4 @@
   </nav>
 </header>
 
-<script>
-$(document).ajaxSend(function(event, request, settings) {
-   $('#loading-indicator').show();
- });
-</script>
 
