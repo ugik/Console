@@ -1,5 +1,6 @@
 <% if signed_in? %>
 
+WE ARE HERE IN HOME.html
   <table class="front" summary="For signed-in admins">
     <tr>
       <td class="sidebar round">

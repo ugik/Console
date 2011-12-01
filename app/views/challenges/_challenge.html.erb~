@@ -21,6 +21,8 @@
   <% challenge.top_teams.take(5).each { |t| 		# top 5 teams %>
   <td><%= Team.find_by_id(t[0].to_i).name %><small> (<strong>Points:</strong><%= number_with_delimiter(t[1], :delimiter => ',') %>)</small></td>
   </tr><tr><td></td> <% }%>
+	
+<tr><td><%= link_to 'Graphs', :controller => 'admins', :method => :get, :action => 'graphs' %></td>></tr>
 
   <% end %>
   

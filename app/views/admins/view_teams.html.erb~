@@ -1,4 +1,6 @@
+<%
 
+%>
 <table class="SortedTeams">
 <tr>
 	<th><%= sortable "name" %></th>

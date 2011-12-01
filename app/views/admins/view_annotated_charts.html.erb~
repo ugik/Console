@@ -1,0 +1,44 @@
+<% cache('graphs_cache') do %>
+
+<% challenge = current_admin.challenges.first %>
+<tr>
+  <td class="challenge">
+    <span class="content"><%= challenge.name %></span>
+  </td>
+  <td><strong>Start: </strong><%= challenge.activation_date %>
+  <% unless challenge.eligible_members == nil %>
+     <strong> Eligible:</strong><%= number_with_delimiter(challenge.eligible_members, :delimiter => ',') %>
+  <% end %></td>
+  <td>
+  <% unless challenge.teams.empty? %>
+  <% @users_on_teams = 0
+     @top_teams = []
+     @top_teams = challenge.top_teams %>
+  <strong>Registered:</strong><%= number_with_delimiter(current_admin.num_users_registered, :delimiter => ',') %>
+  <strong> Teams:</strong><%= challenge.num_teams %> <small>(full:<%= challenge.full_teams %>)</small> </td></tr>
+  <% end %>
+
+</tr><tr></tr>
+<tr>
+	<td></td><td>
+	<%  @data_table = GoogleVisualr::DataTable.new
+    load_challenge_users_table(challenge.id, @data_table) %>
+	<%  opts   = { :displayAnnotations => false }
+    @chart = GoogleVisualr::Interactive::AnnotatedTimeLine.new(@data_table, opts)  %>
+	<div id='annotated-chart' style='width: 700px; height: 300px;'></div>
+	<%= render_chart(@chart, 'annotated-chart') %>
+	</td>
+</tr>
+<tr></tr>
+<tr>
+	<td></td><td>
+	<%  @data_table = GoogleVisualr::DataTable.new
+    load_challenge_points_annotated_table(challenge.id, @data_table) %>
+	<%  opts   = { :displayAnnotations => false }
+    @chart = GoogleVisualr::Interactive::AnnotatedTimeLine.new(@data_table, opts)  %>
+	<div id='annotated-points-chart' style='width: 700px; height: 300px;'></div>
+	<%= render_chart(@chart, 'annotated-points-chart') %>
+</tr>
+<tr></tr>
+
+<% end %>

@@ -17,14 +17,13 @@
   		<%= render @challenges %>
   		</table>
 
-	<nav class="round">
-		<ul>
-		<li>Administrative Info: 
-		<li><%= link_to 'On-Ramp', :controller => 'admins', :method => :get, :action => 'onramp' %>
-		<li><%= link_to 'Engagement', :controller => 'admins', :method => :get, :action => 'engagement' %>
-		<li><%= link_to 'Graphs', :controller => 'admins', :method => :get, :action => 'graphs' %>
-		</ul>
-	</nav>
+  <nav class="round">
+    <ul>
+      <li><%= link_to 'On-Ramp', :controller => 'admins', :method => :get, :action => 'onramp' %>
+      <li><%= link_to 'Engagement', :controller => 'admins', :method => :get, :action => 'engagement' %>
+      <li><%= link_to 'Graphs', :controller => 'admins', :method => :get, :action => 'graphs' %>
+    </ul>
+  </nav>
 
 	<% end %>
 

@@ -4,8 +4,6 @@ Console::Application.routes.draw do
      collection do
         get 'graphs'
         get 'teams'
-	get 'onramp'
-	get 'engagement'
         get 'view_graphs'
         get 'view_teams'
      end
