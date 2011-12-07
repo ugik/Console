@@ -3,7 +3,7 @@
 <% challenge = current_admin.challenges.last
 	div = challenge.league.divisions.first
       @regx = Array.new(load_registered_users(challenge.id, div.id))   #array of registered users from activation date
-      @reg_tot = 0 %>
+      @div_total = 0 %>
 
 	<% if challenge.eligible_members != nil and challenge.eligible_members != 0 %>
 		<large>Registrations</large> (of eligible: <%= challenge.eligible_members %>)
@@ -19,27 +19,54 @@
 	<% end %>
 </tr>
 
-<% challenge.league.divisions.each do |div| 		# for each division of this league
+<% @total_reg = Array.new 		# rolling totals for challenge %>
+<% @total_pct = Array.new %>
+
+<% challenge.league.divisions.each do |div| 		  # for each division of this league
       @regx = Array.new(load_registered_users(challenge.id, div.id))   #array of registered users from activation date
-      @reg_tot = 0 %>
+      @div_total = 0				# rolling total per division
+%>
 <tr>
 	<td><%= div.name %> </td>
-	<% @regx.each do |x| %>
-		<td> <%= @reg_tot += x[1] %> </td>
+	<% @regx.each_with_index do |x, n| 
+		if @total_reg[n] == nil or @total_pct[n] == nil
+			@total_reg[n] = 0
+			@total_pct[n] = 0 			# running totals per date
+		end
+%>
+		<td> <%= @div_total += x[1] %> </td>
+	 	<% @total_reg[n] += @div_total %> 
+<%	logger.debug("n: #{n} total_reg: #{@total_reg[n]} ") %>
 	<% end %>
 </tr>
 
 	<% if challenge.eligible_members != nil and challenge.eligible_members != 0 
-	      @reg_tot = 0 %>
+	      @div_total = 0 %>
 	<tr>
 		<td><small> % Eligible</small></td>
-		<% @regx.each do |x|  @reg_tot += x[1] %>
-			<td> <%= "%3.1f" % (@reg_tot.to_f / challenge.eligible_members.to_f * 100) %></td>
+		<% @regx.each_with_index do |x, n|  @div_total += x[1] %>
+			<td><small> <%= "%3.1f" % (@div_total.to_f / challenge.eligible_members.to_f * 100) %></small></td>
+		 	<% @total_pct[n] += @div_total.to_f / challenge.eligible_members.to_f * 100 %> 
+<%	logger.debug("n: #{n} total_pct: #{@total_pct[n]}") %>
 		<% end %>
 	</tr>
 	<% end %>
 
 <% end %>
+
+<tr>
+	<td>Totals</td>
+	<% @regx.each_index do |n| %>
+		<td> <strong><%= @total_reg[n] %> </strong></td>
+	<% end %>
+</tr><tr>
+	<td><small> % Eligible</small></td>
+	<% @regx.each_index do |n| %>
+		<td><strong><small> <%= "%3.1f" % @total_pct[n] %></small></strong></td>
+	<% end %>
+</tr>
+
+
 </table>
 <% end %>
 
