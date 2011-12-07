@@ -1,14 +1,14 @@
 module ChallengesHelper
 
-  def load_registered_users(challenge_id, array)	# load registered users per day
-
+  def load_registered_users(challenge_id, division_id)	# load registered users per day
     @challenge = Challenge.find(challenge_id)
     @activationDate = @challenge.activation_date
 
     # build array of registration count for 2 weeks beginning with activation date
     array = @challenge.challenge_memberships.count(
-			:group => "DATE(created_at)", 
+			:group => "division_id, DATE(created_at)",
 			:conditions => "created_at > date('"+@activationDate.to_s+"')", 
+			:conditions => "division_id = "+division_id.to_s,
 			:limit => '14').to_a
 
     return array

@@ -1,14 +1,15 @@
 <% cache('onramp_cache') do %>
 
 <% challenge = current_admin.challenges.last
-      @regx = Array.new(load_registered_users(challenge.id))   #array of registered users from league activation date
+	div = challenge.league.divisions.first
+      @regx = Array.new(load_registered_users(challenge.id, div.id))   #array of registered users from activation date
       @reg_tot = 0 %>
 
-<% if challenge.eligible_members != nil and challenge.eligible_members != 0 %>
-	Eligible: <%= challenge.eligible_members %>
-<% else %>
-        (Unknown # Eligible for Challenge)
-<% end %>
+	<% if challenge.eligible_members != nil and challenge.eligible_members != 0 %>
+		<large>Registrations</large> (of eligible: <%= challenge.eligible_members %>)
+	<% else %>
+	        <large>Registrations </large>(Unknown # Eligible for Challenge)
+	<% end %>
 
 <table>
 <tr>
@@ -16,8 +17,13 @@
 	<% @regx.each do |x| %>
 	<th> <%= x[0].strftime("%m/%d") %> </th>
 	<% end %>
-</tr><tr>
-	<td>Registered</td>
+</tr>
+
+<% challenge.league.divisions.each do |div| 		# for each division of this league
+      @regx = Array.new(load_registered_users(challenge.id, div.id))   #array of registered users from activation date
+      @reg_tot = 0 %>
+<tr>
+	<td><%= div.name %> </td>
 	<% @regx.each do |x| %>
 		<td> <%= @reg_tot += x[1] %> </td>
 	<% end %>
@@ -26,15 +32,14 @@
 	<% if challenge.eligible_members != nil and challenge.eligible_members != 0 
 	      @reg_tot = 0 %>
 	<tr>
-		<td>% Eligible</td>
+		<td><small> % Eligible</small></td>
 		<% @regx.each do |x|  @reg_tot += x[1] %>
-			<td> <%= @reg_tot.to_f / challenge.eligible_members.to_f * 100 %></td>
+			<td><small> <%= "%3.1f" % (@reg_tot.to_f / challenge.eligible_members.to_f * 100) %></small></td>
 		<% end %>
 	</tr>
 	<% end %>
 
-</table>
-
 <% end %>
-
+</table>
+<% end %>
 
