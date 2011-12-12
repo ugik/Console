@@ -11,7 +11,7 @@ module ApplicationHelper
   end
   
   def logo
-    image_tag("logo.png", :alt => "Console", :class => "round", :width => "30")
+    image_tag("logo2.png", :alt => "Console", :class => "round", :width => "30")
   end  
 
   def wait

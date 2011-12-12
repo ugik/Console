@@ -36,7 +36,6 @@
 %>
 		<td> <%= @div_total += x[1] %> </td>
 	 	<% @total_reg[n] += @div_total %> 
-<%	logger.debug("n: #{n} total_reg: #{@total_reg[n]} ") %>
 	<% end %>
 </tr>
 
@@ -47,7 +46,6 @@
 		<% @regx.each_with_index do |x, n|  @div_total += x[1] %>
 			<td><small> <%= "%3.1f" % (@div_total.to_f / challenge.eligible_members.to_f * 100) %></small></td>
 		 	<% @total_pct[n] += @div_total.to_f / challenge.eligible_members.to_f * 100 %> 
-<%	logger.debug("n: #{n} total_pct: #{@total_pct[n]}") %>
 		<% end %>
 	</tr>
 	<% end %>

@@ -16,7 +16,7 @@ module ApplicationHelper
 
   def wait
     image_tag("CircularProgressAnimation.gif", :id => "busy-indicator", :alt => "Console", :class => "round", 
-	:width => "35")
+	:width => "35", :style =>"display:none")
   end
 
   def pop

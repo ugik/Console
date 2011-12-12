@@ -2,8 +2,11 @@
   width: 910px;
 }
 
+/*   background: #E6EFC2;  */
 body {
   background: #E6EFC2; 
+  background-image:url('bkgd.jpeg');
+  background-size:cover
 }
 
 header {

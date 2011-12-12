@@ -55,12 +55,12 @@
 <% end %>
 
 <tr>
-	<td>Totals</td>
+	<td><strong>Totals</strong></td>
 	<% @regx.each_index do |n| %>
 		<td> <strong><%= @total_reg[n] %> </strong></td>
 	<% end %>
 </tr><tr>
-	<td><small> % Eligible</small></td>
+	<td><small><strong> % Eligible</strong></small></td>
 	<% @regx.each_index do |n| %>
 		<td><strong><small> <%= "%3.1f" % @total_pct[n] %></small></strong></td>
 	<% end %>

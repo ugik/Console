@@ -2,8 +2,10 @@
   width: 910px;
 }
 
+/*   background: #E6EFC2;  */
 body {
   background: #E6EFC2; 
+  background-image:url('bkgd.jpeg');
 }
 
 header {
@@ -194,13 +196,6 @@ ul.admins {
 .admins li {
   list-style: none;
 }
-
-/* loading indicator */
-#loading-indicator {
-   position: absolute;
-   left: 10px;
-   top: 10px;
- }
 
 /* Sorted teams view */
 

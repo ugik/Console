@@ -23,6 +23,7 @@ class Admin < ActiveRecord::Base
   validates :password, :presence     => true,
                        :confirmation => true,
                        :length       => { :within => 6..40 }
+  validates :league_id,  :presence => true
 
   before_save :encrypt_password
   cache = Hash.new
