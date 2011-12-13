@@ -19,9 +19,10 @@ class SessionsController < ApplicationController
   
   def destroy
     sign_out
-    expire_fragment('challenges_cache')			# expire cache
-    expire_fragment('graphs_cache')         			# expire cache
-    expire_fragment('annotated_charts_cache') 		# expire cache
+    expire_fragment('challenges_cache')			# expire caches
+    expire_fragment('graphs_cache') 
+    expire_fragment('annotated_charts_cache') 
+    expire_fragment('onramp_cache')
 
     redirect_to root_path
   end
