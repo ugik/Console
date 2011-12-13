@@ -22,6 +22,8 @@
     <%= f.label :company_name %><br />
     <%= f.text_field :company_name %>
   </div>
+<% logger.debug("ADMIN "+ @admin.administrator.to_s) %>
+
   <div class="field">
     <%= f.label :league_id if @admin.administrator %><br />
     <%= f.text_field :league_id if @admin.administrator %>

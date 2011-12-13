@@ -14,7 +14,7 @@ class AdminsController < ApplicationController
   end
 
   def onramp
-     render :action => "on_ramp"
+     render :action => "view_onramp"
   end
 
   def teams

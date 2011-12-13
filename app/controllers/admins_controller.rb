@@ -56,8 +56,10 @@ class AdminsController < ApplicationController
     if @admin.save
       sign_in @admin
       flash[:success] = "New admin created"
-      expire_fragment('challenges_cache')         # expire cache
-      expire_fragment('graphs_cache')         # expire cache
+    expire_fragment('challenges_cache')			# expire caches
+    expire_fragment('graphs_cache') 
+    expire_fragment('annotated_charts_cache') 
+    expire_fragment('onramp_cache')
 
       redirect_to @admin
     else
@@ -71,8 +73,10 @@ class AdminsController < ApplicationController
     if @admin.update_attributes(params[:admin])
       flash[:success] = "Profile updated."
 
-      expire_fragment('challenges_cache')         # expire cache
-      expire_fragment('graphs_cache')         # expire cache
+    expire_fragment('challenges_cache')			# expire caches
+    expire_fragment('graphs_cache') 
+    expire_fragment('annotated_charts_cache') 
+    expire_fragment('onramp_cache')
 
       redirect_to @admin
     else
