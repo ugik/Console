@@ -1,0 +1,100 @@
+2011-12-07T03:21:43+00:00 heroku[router]: GET stormy-window-6506.heroku.com/assets/custom-ac8bae260997e5d2441a366cbd90dd04.css dyno=web.1 queue=0 wait=0ms service=11ms status=200 bytes=2747
+2011-12-07T03:21:43+00:00 heroku[nginx]: 184.75.13.195 - - [06/Dec/2011:19:21:43 -0800] "GET /assets/custom-ac8bae260997e5d2441a366cbd90dd04.css HTTP/1.1" 200 1010 "http://stormy-window-6506.heroku.com/" "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" stormy-window-6506.heroku.com
+2011-12-07T03:21:45+00:00 app[web.1]: 
+2011-12-07T03:21:45+00:00 app[web.1]: 
+2011-12-07T03:21:45+00:00 app[web.1]: Started GET "/assets/defaults.js" for 184.75.13.195 at 2011-12-06 19:21:45 -0800
+2011-12-07T03:21:45+00:00 app[web.1]: 
+2011-12-07T03:21:45+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/assets/defaults.js"):
+2011-12-07T03:21:45+00:00 app[web.1]:   
+2011-12-07T03:21:45+00:00 app[web.1]: 
+2011-12-07T03:21:45+00:00 app[web.1]: 
+2011-12-07T03:21:45+00:00 app[web.1]: cache: [GET /assets/defaults.js] miss
+2011-12-07T03:21:45+00:00 heroku[nginx]: 184.75.13.195 - - [06/Dec/2011:19:21:45 -0800] "GET /assets/defaults.js HTTP/1.1" 404 728 "http://stormy-window-6506.heroku.com/" "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" stormy-window-6506.heroku.com
+2011-12-07T03:21:45+00:00 app[web.1]: 
+2011-12-07T03:21:45+00:00 app[web.1]: 
+2011-12-07T03:21:45+00:00 app[web.1]: Started GET "/assets/logo-74144778c2ace4309d764d2c8fa9c422.png" for 184.75.13.195 at 2011-12-06 19:21:45 -0800
+2011-12-07T03:21:45+00:00 app[web.1]: cache: [GET /assets/logo-74144778c2ace4309d764d2c8fa9c422.png] miss, store
+2011-12-07T03:21:45+00:00 heroku[router]: GET stormy-window-6506.heroku.com/assets/logo-74144778c2ace4309d764d2c8fa9c422.png dyno=web.1 queue=0 wait=0ms service=7ms status=200 bytes=1522
+2011-12-07T03:21:45+00:00 heroku[nginx]: 184.75.13.195 - - [06/Dec/2011:19:21:45 -0800] "GET /assets/logo-74144778c2ace4309d764d2c8fa9c422.png HTTP/1.1" 200 1522 "http://stormy-window-6506.heroku.com/" "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" stormy-window-6506.heroku.com
+2011-12-07T03:21:46+00:00 app[web.1]: cache: [GET /favicon.ico] miss
+2011-12-07T03:21:46+00:00 heroku[nginx]: 184.75.13.195 - - [06/Dec/2011:19:21:46 -0800] "GET /favicon.ico HTTP/1.1" 200 0 "-" "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" stormy-window-6506.heroku.com
+2011-12-07T03:21:46+00:00 heroku[router]: GET stormy-window-6506.heroku.com/favicon.ico dyno=web.1 queue=0 wait=0ms service=7ms status=200 bytes=0
+2011-12-07T03:22:08+00:00 app[web.1]: 
+2011-12-07T03:22:08+00:00 app[web.1]: 
+2011-12-07T03:22:08+00:00 app[web.1]: Started GET "/admins/onramp?method=get" for 184.75.13.195 at 2011-12-06 19:22:08 -0800
+2011-12-07T03:22:08+00:00 app[web.1]:   Processing by AdminsController#onramp as HTML
+2011-12-07T03:22:08+00:00 app[web.1]:   Parameters: {"method"=>"get"}
+2011-12-07T03:22:08+00:00 app[web.1]: Read fragment views/onramp_cache (0.1ms)
+2011-12-07T03:22:08+00:00 app[web.1]: Write fragment views/onramp_cache (1.8ms)
+2011-12-07T03:22:08+00:00 app[web.1]: Rendered admins/view_onramp.html.erb within layouts/application (66.6ms)
+2011-12-07T03:22:08+00:00 app[web.1]: Rendered layouts/_stylesheets.html.erb (1.7ms)
+2011-12-07T03:22:08+00:00 app[web.1]: Rendered layouts/_header.html.erb (1.8ms)
+2011-12-07T03:22:08+00:00 app[web.1]: Rendered layouts/_footer.html.erb (0.3ms)
+2011-12-07T03:22:08+00:00 app[web.1]: Completed 200 OK in 112ms (Views: 88.4ms | ActiveRecord: 23.3ms)
+2011-12-07T03:22:08+00:00 app[web.1]: cache: [GET /admins/onramp?method=get] miss
+2011-12-07T03:22:08+00:00 heroku[nginx]: 184.75.13.195 - - [06/Dec/2011:19:22:08 -0800] "GET /admins/onramp?method=get HTTP/1.1" 200 1039 "http://stormy-window-6506.heroku.com/" "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" stormy-window-6506.heroku.com
+2011-12-07T03:22:08+00:00 app[web.1]: 
+2011-12-07T03:22:08+00:00 app[web.1]: 
+2011-12-07T03:22:08+00:00 app[web.1]: Started GET "/assets/defaults.js" for 184.75.13.195 at 2011-12-06 19:22:08 -0800
+2011-12-07T03:22:08+00:00 app[web.1]: 
+2011-12-07T03:22:08+00:00 app[web.1]: ActionController::RoutingError (No route matches [GET] "/assets/defaults.js"):
+2011-12-07T03:22:08+00:00 app[web.1]:   
+2011-12-07T03:22:08+00:00 app[web.1]: 
+2011-12-07T03:22:08+00:00 app[web.1]: 
+2011-12-07T03:22:08+00:00 app[web.1]: cache: [GET /assets/defaults.js] miss
+2011-12-07T03:22:08+00:00 heroku[router]: GET stormy-window-6506.heroku.com/assets/defaults.js dyno=web.1 queue=0 wait=0ms service=9ms status=404 bytes=728
+2011-12-07T03:22:08+00:00 heroku[nginx]: 184.75.13.195 - - [06/Dec/2011:19:22:08 -0800] "GET /assets/defaults.js HTTP/1.1" 404 728 "http://stormy-window-6506.heroku.com/admins/onramp?method=get" "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" stormy-window-6506.heroku.com
+2011-12-07T03:55:48+00:00 heroku[slugc]: Slug compilation started
+2011-12-07T03:56:33+00:00 heroku[api]: Deploy 0fa17e9 by georgek@gmail.com
+2011-12-07T03:56:33+00:00 heroku[api]: Release v9 created by georgek@gmail.com
+2011-12-07T03:56:33+00:00 heroku[web.1]: State changed from up to bouncing
+2011-12-07T03:56:33+00:00 heroku[web.1]: State changed from bouncing to created
+2011-12-07T03:56:33+00:00 heroku[web.1]: State changed from created to starting
+2011-12-07T03:56:37+00:00 heroku[web.1]: Stopping process with SIGTERM
+2011-12-07T03:56:37+00:00 app[web.1]: >> Stopping ...
+2011-12-07T03:56:37+00:00 heroku[web.1]: Process exited
+2011-12-07T03:56:37+00:00 heroku[web.1]: Starting process with command `thin -p 30016 -e production -R /home/heroku_rack/heroku.ru start`
+2011-12-07T03:57:24+00:00 app[web.1]: 
+2011-12-07T03:57:24+00:00 app[web.1]: 
+2011-12-07T03:57:24+00:00 app[web.1]: Started GET "/admins/onramp?method=get" for 184.75.13.195 at 2011-12-06 19:57:24 -0800
+2011-12-07T03:57:24+00:00 app[web.1]:   Processing by AdminsController#onramp as HTML
+2011-12-07T03:57:24+00:00 app[web.1]:   Parameters: {"method"=>"get"}
+2011-12-07T03:57:24+00:00 app[web.1]: Read fragment views/onramp_cache (0.1ms)
+2011-12-07T03:57:26+00:00 app[web.1]: Write fragment views/onramp_cache (33.0ms)
+2011-12-07T03:57:26+00:00 app[web.1]: Rendered admins/view_onramp.html.erb within layouts/application (1916.4ms)
+2011-12-07T03:57:26+00:00 app[web.1]: Rendered layouts/_stylesheets.html.erb (20.1ms)
+2011-12-07T03:57:26+00:00 app[web.1]: Rendered layouts/_header.html.erb (5.4ms)
+2011-12-07T03:57:26+00:00 app[web.1]: Rendered layouts/_footer.html.erb (0.7ms)
+2011-12-07T03:57:26+00:00 app[web.1]: Completed 200 OK in 2003ms (Views: 1953.4ms | ActiveRecord: 49.8ms)
+2011-12-07T03:57:26+00:00 app[web.1]: cache: [GET /admins/onramp?method=get] miss
+2011-12-07T03:57:26+00:00 heroku[router]: GET stormy-window-6506.heroku.com/admins/onramp dyno=web.1 queue=0 wait=0ms service=2060ms status=200 bytes=2931
+2011-12-07T03:57:26+00:00 heroku[nginx]: 184.75.13.195 - - [06/Dec/2011:19:57:26 -0800] "GET /admins/onramp?method=get HTTP/1.1" 200 1055 "http://stormy-window-6506.heroku.com/" "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" stormy-window-6506.heroku.com
+2011-12-07T03:57:30+00:00 heroku[router]: GET stormy-window-6506.heroku.com/assets/custom-ac8bae260997e5d2441a366cbd90dd04.css dyno=web.1 queue=0 wait=0ms service=7ms status=200 bytes=2747
+2011-12-07T03:57:30+00:00 heroku[nginx]: 184.75.13.195 - - [06/Dec/2011:19:57:30 -0800] "GET /assets/custom-ac8bae260997e5d2441a366cbd90dd04.css HTTP/1.1" 200 969 "http://stormy-window-6506.heroku.com/admins/onramp?method=get" "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" stormy-window-6506.heroku.com
+2011-12-07T03:57:30+00:00 heroku[router]: GET stormy-window-6506.heroku.com/assets/defaults.js dyno=web.1 queue=0 wait=0ms service=17ms status=404 bytes=728
+2011-12-07T03:57:30+00:00 heroku[nginx]: 184.75.13.195 - - [06/Dec/2011:19:57:30 -0800] "GET /assets/defaults.js HTTP/1.1" 404 728 "http://stormy-window-6506.heroku.com/admins/onramp?method=get" "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" stormy-window-6506.heroku.com
+2011-12-07T03:57:30+00:00 app[web.1]: 
+2011-12-07T03:57:30+00:00 app[web.1]: cache: [GET /assets/custom-ac8bae260997e5d2441a366cbd90dd04.css] miss, store
+2011-12-07T03:57:36+00:00 app[web.1]: 
+2011-12-07T03:57:36+00:00 app[web.1]: 
+2011-12-07T03:57:36+00:00 app[web.1]: Started GET "/assets/logo-74144778c2ace4309d764d2c8fa9c422.png" for 184.75.13.195 at 2011-12-06 19:57:36 -0800
+2011-12-07T03:57:36+00:00 app[web.1]: cache: [GET /assets/logo-74144778c2ace4309d764d2c8fa9c422.png] miss, store
+2011-12-07T03:57:36+00:00 heroku[nginx]: 184.75.13.195 - - [06/Dec/2011:19:57:36 -0800] "GET /assets/logo-74144778c2ace4309d764d2c8fa9c422.png HTTP/1.1" 200 1522 "http://stormy-window-6506.heroku.com/admins/onramp?method=get" "Mozilla/5.0 (X11; Linux i686; rv:7.0.1) Gecko/20100101 Firefox/7.0.1" stormy-window-6506.heroku.com
+2011-12-07T05:02:46+00:00 heroku[web.1]: Idling
+2011-12-07T05:02:47+00:00 heroku[web.1]: State changed from down to created
+2011-12-07T05:02:47+00:00 heroku[web.1]: State changed from created to starting
+2011-12-07T05:02:49+00:00 heroku[web.1]: Stopping process with SIGTERM
+2011-12-07T05:02:49+00:00 app[web.1]: >> Stopping ...
+2011-12-07T05:02:49+00:00 heroku[web.1]: Process exited
+2011-12-07T05:02:51+00:00 heroku[web.1]: Starting process with command `thin -p 34472 -e production -R /home/heroku_rack/heroku.ru start`
+2011-12-07T05:02:57+00:00 app[web.1]: >> Thin web server (v1.2.6 codename Crazy Delicious)
+2011-12-07T05:02:57+00:00 app[web.1]: >> Maximum connections set to 1024
+2011-12-07T05:02:57+00:00 app[web.1]: >> Listening on 0.0.0.0:34472, CTRL+C to stop
+2011-12-07T06:10:05+00:00 heroku[web.1]: Idling
+2011-12-07T06:10:06+00:00 heroku[web.1]: State changed from up to down
+2011-12-07T06:10:07+00:00 heroku[web.1]: Stopping process with SIGTERM
+2011-12-07T06:10:07+00:00 heroku[web.1]: Process exited
+2011-12-12T23:09:23+00:00 heroku[slugc]: Slug compilation started
+2011-12-12T23:10:42+00:00 heroku[api]: Deploy f0089a3 by georgek@gmail.com
+2011-12-12T23:10:42+00:00 heroku[api]: Release v11 created by georgek@gmail.com
+2011-12-12T23:10:43+00:00 heroku[slugc]: Slug compilation finished
